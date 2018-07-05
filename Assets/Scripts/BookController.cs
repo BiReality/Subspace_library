@@ -25,6 +25,7 @@ public class BookController : MonoBehaviour {
 	void Update () {
 		time_since_last_turn += Time.deltaTime;
 
+		if (GameObject.Find("RightController") == null) return;
 		Vector2 axis = GameObject.Find("RightController").GetComponent<VRTK_ControllerEvents>().GetTouchpadAxis();
 		if (axis.x > 0.5f && page_cur <= page_cnt && time_since_last_turn > 1f) {
 			time_since_last_turn = 0f;
@@ -60,7 +61,7 @@ public class BookController : MonoBehaviour {
 		return content;
 	}
 
-	public void PopulateBook (BookInfo book_info) {
+	public void LoadBook (BookInfo book_info) {
 		string title = book_info.title;
 		string content = DownloadBookContent(book_info.link);
 

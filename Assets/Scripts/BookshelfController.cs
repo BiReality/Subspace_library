@@ -6,8 +6,7 @@ public class BookshelfController : MonoBehaviour {
 
 	private List<BookInfo> books = new List<BookInfo>();
 
-
-	void Start () {
+	public void Init () {
 		ImportBookInfo();
 		for (int shelf = 0; shelf < 1; shelf++) {
 			for (int row = 0; row < 1; row++) {
@@ -19,10 +18,6 @@ public class BookshelfController : MonoBehaviour {
 		}
 	}
 	
-	void Update () {
-		
-	}
-
 	private void ImportBookInfo () {
 		string s = System.IO.File.ReadAllText("Assets/Scripts/booklist.txt");
 		string[] lines = s.Split('\n');
