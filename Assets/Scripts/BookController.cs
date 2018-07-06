@@ -6,7 +6,6 @@ using UnityEngine.Networking;
 using System.Net;
 using System.IO;
 using TLGFPowerBooks;
-using VRTK;
 
 public class BookController : MonoBehaviour {
 
@@ -21,7 +20,7 @@ public class BookController : MonoBehaviour {
 	void Start () {
 		pBook = GetComponent<PBook>();
 	}
-	
+	/*
 	void Update () {
 		time_since_last_turn += Time.deltaTime;
 
@@ -46,7 +45,7 @@ public class BookController : MonoBehaviour {
 			}
 		}
 	}
-
+	*/
 	private string DownloadBookContent (string link) {
 		string content = "";
 		HttpWebRequest request = (HttpWebRequest)WebRequest.Create(link);

@@ -1,32 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using VRTK;
 
-public class BookPlaceholderController : VRTK_InteractableObject {
+public class BookPlaceholderController : MonoBehaviour {
 
+	private int[] child_index;
 	private BookInfo book_info;
 
-	// Server
-	public void Set (BookInfo book_info) {
+	public void Set (int[] child_index, BookInfo book_info) {
+		this.child_index = child_index;
 		this.book_info = book_info;
-		GetComponentInChildren<Text>().text = book_info.title;
-		GetComponent<PhotonView>().RPC("SetClient", PhotonTargets.AllBuffered, book_info.title, book_info.link);
+		GetComponentInChildren<UnityEngine.UI.Text>().text = book_info.title;
+		GetComponent<PhotonView>().RPC("SetText", PhotonTargets.OthersBuffered, child_index, book_info.title);
 	}
 
-	// Client
-	[PunRPC]
-	public void SetClient (string title, string link) {
-		this.book_info.title = title;
-		this.book_info.link = link;
-		GetComponentInChildren<Text>().text = book_info.title;
-	}
 
+	/*
 	// Client
 	public override void StartUsing (VRTK_InteractUse usingObject) {
 		base.StartUsing(usingObject);
 		GameObject.Find("bookinhand").GetComponent<BookController>().LoadBook(book_info);
 	}
-
+	*/
 }

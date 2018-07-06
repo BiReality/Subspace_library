@@ -9,7 +9,7 @@ public class SceneController : Photon.PunBehaviour {
 		PhotonNetwork.ConnectUsingSettings("0.1");
 	}
 
-	public override void OnJoinedLobby () {
+	public override void OnConnectedToMaster () {
 		RoomOptions roomOptions = new RoomOptions();
 		roomOptions.IsVisible = true;
 		roomOptions.MaxPlayers = 0;  // no limit
@@ -18,7 +18,6 @@ public class SceneController : Photon.PunBehaviour {
 
 	public override void OnJoinedRoom () {
 		PhotonNetwork.Instantiate("room", Vector3.zero, Quaternion.identity, 0);
-		PhotonNetwork.Instantiate("bookinhand", new Vector3(0f, 1f, 0f), Quaternion.identity, 0);
 		PhotonNetwork.Instantiate("bookshelfarray", Vector3.zero, Quaternion.identity, 0);
 
 		GameObject.Find("bookshelfarray(Clone)").GetComponent<BookshelfController>().Init();
