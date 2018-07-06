@@ -14,12 +14,17 @@ public class BookPlaceholderController : MonoBehaviour {
 		GetComponent<PhotonView>().RPC("SetText", PhotonTargets.OthersBuffered, child_index, book_info.title);
 	}
 
-
-	/*
-	// Client
-	public override void StartUsing (VRTK_InteractUse usingObject) {
-		base.StartUsing(usingObject);
-		GameObject.Find("bookinhand").GetComponent<BookController>().LoadBook(book_info);
+	[PunRPC]
+	void InteractUse (int playerId) {
+		GameObject bookinhand = null;
+		GameObject[] books = GameObject.FindGameObjectsWithTag("bookinhand");
+		foreach (GameObject book in books) {
+			if (book.GetComponent<PhotonView>().ownerId == playerId) {
+				bookinhand = book;
+			}
+		}
+		if (bookinhand == null) return;
+		bookinhand.GetComponent<BookController>().LoadBook(book_info);
 	}
-	*/
+	
 }

@@ -20,32 +20,16 @@ public class BookController : MonoBehaviour {
 	void Start () {
 		pBook = GetComponent<PBook>();
 	}
-	/*
-	void Update () {
-		time_since_last_turn += Time.deltaTime;
 
-		if (GameObject.Find("RightController") == null) return;
-		Vector2 axis = GameObject.Find("RightController").GetComponent<VRTK_ControllerEvents>().GetTouchpadAxis();
-		if (axis.x > 0.5f && page_cur <= page_cnt && time_since_last_turn > 1f) {
-			time_since_last_turn = 0f;
-			if (page_cur == 0) {
-				pBook.OpenBook();
-			} else {
-				pBook.NextPage();
-			}
-			page_cur += 2;
-		}
-		if (axis.x < -0.5f && time_since_last_turn > 1f) {
-			time_since_last_turn = 0f;
-			page_cur -= 2;
-			if (page_cur <= 0) {
-				pBook.CloseBook();
-			} else {
-				pBook.PrevPage();
-			}
+	[PunRPC]
+	void InteractUse (int playerId) {
+		if (page_cur == 0) {
+			pBook.OpenBook();
+		} else {
+			pBook.NextPage();
 		}
 	}
-	*/
+
 	private string DownloadBookContent (string link) {
 		string content = "";
 		HttpWebRequest request = (HttpWebRequest)WebRequest.Create(link);
@@ -79,7 +63,7 @@ public class BookController : MonoBehaviour {
 
 		List<string> pages = BookParser.GetPages(content);
 		page_cnt = pages.Count;
-		for (int i = 0; i < Mathf.Min(page_cnt, 100); i++) {
+		for (int i = 0; i < Mathf.Min(page_cnt, 10); i++) {
 			Text page_text = pBook.contentContainer.GetChild(i).GetChild(0).GetComponent<Text>();
 			page_text.text = pages[i];
 			page_text.font = font;
