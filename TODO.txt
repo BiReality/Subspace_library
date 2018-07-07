@@ -1,6 +1,0 @@
-1. display controllers
-2. async download book
-
-3. initial objects not synced to client
-4. assembly - missing reference
-     -- attach manually?
