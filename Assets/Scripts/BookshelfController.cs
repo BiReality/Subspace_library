@@ -8,8 +8,8 @@ public class BookshelfController : MonoBehaviour {
 
 	public void Init () {
 		ImportBookInfo();
-		for (int shelf = 0; shelf < 1; shelf++) {
-			for (int row = 0; row < 1; row++) {
+		for (int shelf = 0; shelf < 5; shelf++) {
+			for (int row = 0; row < 5; row++) {
 				for (int col = 0; col < 12; col++) {
 					int index = shelf * 60 + row * 12 + col;
 					transform.GetChild(shelf).GetChild(row).GetChild(col).GetComponent<BookPlaceholderController>().Set(new int[]{0, 0}, books[index]);
