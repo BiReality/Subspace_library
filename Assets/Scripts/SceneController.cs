@@ -13,7 +13,7 @@ public class SceneController : Photon.PunBehaviour {
 		RoomOptions roomOptions = new RoomOptions();
 		roomOptions.IsVisible = true;
 		roomOptions.MaxPlayers = 0;  // no limit
-		PhotonNetwork.CreateRoom(null, roomOptions, TypedLobby.Default);  // auto-generated name
+		PhotonNetwork.CreateRoom("liujch1998" + "Library", roomOptions, TypedLobby.Default);
 	}
 
 	public override void OnJoinedRoom () {
