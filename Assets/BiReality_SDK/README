@@ -1,0 +1,28 @@
+Scene
+
+You should create an empty GameObject "SceneController" that have Script "BiReality_SDK/Script/SceneController.cs" attached to it. Fill in parameters. 
+
+You are expected to implement InstantiateSceneObjects() and InstantiatePlayerObjects() in SceneController.cs
+
+You are expected to implement InteractUse() in ObjectController.cs
+
+
+Prefab
+
+Prefabs should be placed in folder "Resources". 
+
+If a GameObject is visible over network, its Prefab should have the following components: 
+	PhotonView
+
+If a GameObject is interactable, its Prefab should have the following components: 
+	RpcReceiver.cs (a script placeholder whose logic is implemented in terminal)
+	CustomInteractUse.cs (a script placeholder whose logic is implemented in terminal)
+	RigidBody
+	Box Collider
+Also, you should implement this function in its controller script: 
+	[PunRPC] void InteractUse (int playerId) {}
+
+If a GameObject is grabbable, its Prefab should have the following components: 
+	VRTK_FixedJointGrabAttach
+	VRTK_SwapControllerGrabAction
+

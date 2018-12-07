@@ -1,0 +1,12 @@
+v0.2.1
+2018/12/06
+Remove third-party plugins from BiReality_SDK
+
+v0.2.0
+2018/12/06
+Factor out third-party Unity packages. Should release BiReality_SDK
+
+v0.1.0
+2018/07/09
+Initial commit
+

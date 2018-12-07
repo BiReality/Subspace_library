@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731725, g: 0.13414744, b: 0.12107873, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -150,6 +150,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 133521930}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8de47d1f93c79b488ee694862e03919, type: 3}
+  m_Script: {fileID: 11500000, guid: 1258d8b25e5942f45badb318b4da45e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  YourBirealityUsername: liujch1998
+  YourRoomTitle: Library
+  MaxPlayers: 16
